@@ -66,7 +66,7 @@ input, textarea { user-select: auto; }
     cursor: pointer; 
     user-select: none;
     text-decoration: none;
-    transition: transform 0.3s ease, gap 0.3s ease;
+    transition: transform 0.3s ease, gap 0.3s ease, left 0.3s ease, right 0.3s ease;
 }
 .floating-btn-left { left: 16px; }
 .floating-btn-right { right: 16px; }
@@ -270,8 +270,154 @@ input, textarea { user-select: auto; }
     .mobile-ribbon-toggle { display: flex; }
     body { padding-top: 70px; }
 }
+
+/* ===== FIXED: Mobile navigation buttons - prevents overlap ===== */
 @media (max-width: 768px) {
-    .floating-btn-left, .floating-btn-right { top:auto; bottom:80px; transform:none; left:12px; right:12px; }
-    .floating-btn-left.shifted, .floating-btn-right.shifted { transform:translateY(-20px); }
-    .hr-fit_clickable { bottom:20px; left:20px; width:60px; height:60px; }
+    /* Reset positioning for mobile */
+    .floating-btn-left, 
+    .floating-btn-right {
+        position: fixed;
+        top: auto !important;
+        bottom: 80px;
+        transform: none !important;
+        width: auto;
+        max-width: 45%; /* Prevent buttons from taking too much width */
+    }
+    
+    /* Position left button */
+    .floating-btn-left {
+        left: 12px;
+        right: auto;
+    }
+    
+    /* Position right button */
+    .floating-btn-right {
+        right: 12px;
+        left: auto;
+    }
+    
+    /* Shifted state for mobile */
+    .floating-btn-left.shifted,
+    .floating-btn-right.shifted {
+        bottom: 60px; /* Move up when shifted */
+        transform: translateY(0) !important;
+    }
+    
+    /* Adjust pill size for mobile */
+    .floating-pill {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+    
+    /* Ensure text doesn't overflow */
+    .floating-pill span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 80px; /* Limit text width */
+    }
+    
+    /* When shifted, hide text completely */
+    .floating-btn-left.shifted .floating-pill span,
+    .floating-btn-right.shifted .floating-pill span {
+        display: none;
+    }
+    
+    /* Adjust arrow sizes */
+    .floating-arrow-left, 
+    .floating-arrow-right {
+        font-size: 1.4rem;
+    }
+    
+    .hr-fit_clickable { 
+        bottom: 20px; 
+        left: 20px; 
+        width: 60px; 
+        height: 60px; 
+    }
+}
+
+/* Extra small devices (phones, less than 480px) */
+@media (max-width: 480px) {
+    .floating-btn-left,
+    .floating-btn-right {
+        bottom: 70px;
+        max-width: 40%;
+    }
+    
+    .floating-pill {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .floating-pill span {
+        max-width: 60px; /* Further limit text width */
+    }
+    
+    .floating-arrow-left, 
+    .floating-arrow-right {
+        font-size: 1.2rem;
+    }
+    
+    .floating-btn-left.shifted,
+    .floating-btn-right.shifted {
+        bottom: 50px;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+    .floating-btn-left,
+    .floating-btn-right {
+        max-width: 35%;
+    }
+    
+    .floating-pill span {
+        max-width: 50px;
+    }
+    
+    .floating-pill {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Handle landscape orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .floating-btn-left,
+    .floating-btn-right {
+        bottom: 40px;
+    }
+    
+    .floating-btn-left.shifted,
+    .floating-btn-right.shifted {
+        bottom: 30px;
+    }
+}
+
+/* Fix for very narrow screens where buttons might still overlap */
+@media (max-width: 320px) {
+    .floating-btn-left,
+    .floating-btn-right {
+        max-width: 35%;
+    }
+    
+    .floating-pill span {
+        display: none; /* Hide text completely on very narrow screens */
+    }
+    
+    .floating-pill {
+        padding: 6px 10px;
+        justify-content: center;
+    }
+    
+    .floating-arrow-left,
+    .floating-arrow-right {
+        margin: 0;
+    }
+    
+    .floating-btn-right .floating-arrow-right {
+        order: 0; /* Reset order for symmetry */
+    }
 }
