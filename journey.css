@@ -1,4 +1,4 @@
-/* Journey Stages Circle Styling */
+/* Journey Stages Circle Styling - Clean Version */
 .journey-stages {
     display: flex;
     flex-wrap: wrap;
@@ -98,7 +98,7 @@
     .stage-item { max-width: 240px; width: 100%; }
     .stage-item:nth-child(2) { margin-top: 0; }
     .stage-item:nth-child(4) { margin-top: 0; }
-}  * { margin: 0; padding: 0; box-sizing: border-box; }
+}
         :root {
             --excel-blue: #0078d4;
             --excel-blue-dark: #106ebe;
@@ -474,3 +474,4 @@
             .hr-fit_clickable { bottom:20px; left:20px; width:60px; height:60px; }
 
         }
+
