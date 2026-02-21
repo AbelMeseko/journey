@@ -1,3 +1,4 @@
+  * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --excel-blue: #0078d4;
             --excel-blue-dark: #106ebe;
@@ -279,16 +280,14 @@
             align-items: flex-start;
         }
         .stage-item {
-            flex:1 1 150px; 
-            min-width: 150px; 
-            max-width: 200px;
+            flex:1 1 150px; min-width:140px; max-width:220px;
             background:white; 
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            padding: 35px 15px 25px 15px; 
+            border-radius: 50%;
+            padding: 25px 15px; 
             text-align:center;
             box-shadow:0 8px 20px rgba(19,41,75,0.15); 
             border:3px solid var(--navy-dark);
-            aspect-ratio: 1 / 0.9;
+            aspect-ratio: 1/1;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -347,21 +346,13 @@
 
         @media (max-width: 800px) {
             .journey-stages { gap:15px; }
-            .stage-item { 
-                min-width: 130px;
-                aspect-ratio: 1 / 0.85;
-                padding: 25px 10px 20px 10px;
-            }
+            .stage-item { min-width:130px; }
             .stage-item:nth-child(2) { margin-top: 60px; }
             .stage-item:nth-child(4) { margin-top: 60px; }
         }
         @media (max-width: 500px) {
             .journey-stages { flex-direction:column; align-items:center; }
-            .stage-item { 
-                max-width:240px; 
-                width:100%;
-                aspect-ratio: 1 / 0.8;
-            }
+            .stage-item { max-width:240px; width:100%; }
             .stage-item:nth-child(2) { margin-top: 0; }   
             .stage-item:nth-child(4) { margin-top: 0; }
         }
@@ -381,5 +372,4 @@
             .floating-btn-left, .floating-btn-right { top:auto; bottom:80px; transform:none; left:12px; right:12px; }
             .floating-btn-left.shifted, .floating-btn-right.shifted { transform:translateY(-20px); }
             .hr-fit_clickable { bottom:20px; left:20px; width:60px; height:60px; }
-
         }
