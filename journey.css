@@ -338,7 +338,7 @@ input, textarea { user-select: auto; }
 }
 
 /* ============================================
-   RIBBON HEADER - MODIFIED FOR TOP RIGHT CORNER
+   RIBBON HEADER
    ============================================ */
 .ribbon-header {
     position: fixed; 
@@ -449,8 +449,23 @@ input, textarea { user-select: auto; }
 .ribbon-link.home-active i { color:white; }
 
 /* ============================================
-   USER INFO & SIGN OUT BUTTON STYLES - REPOSITIONED
+   USER INFO & BUTTONS - TOP RIGHT CORNER
    ============================================ */
+.top-right-user-container {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-primary);
+}
+
 .user-info-header {
     display: flex;
     align-items: center;
@@ -462,8 +477,8 @@ input, textarea { user-select: auto; }
 }
 
 .user-avatar-small {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     border-radius: 4px;
     overflow: hidden;
     border: 2px solid var(--orange-primary);
@@ -489,7 +504,7 @@ input, textarea { user-select: auto; }
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: uppercase;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -501,7 +516,7 @@ input, textarea { user-select: auto; }
 
 .user-name-small {
     color: var(--navy-dark);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1.2;
     white-space: nowrap;
@@ -509,30 +524,57 @@ input, textarea { user-select: auto; }
 
 .user-email-small {
     color: var(--gray-700);
-    font-size: 11px;
+    font-size: 10px;
     line-height: 1.2;
     white-space: nowrap;
-    max-width: 200px;
+    max-width: 180px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 500;
 }
 
-/* Updated Sign Out Button - Solid Red and Smaller */
+/* Help Button - Same size as Home button */
+.help-btn {
+    background: var(--orange-primary);
+    color: white;
+    border: 1px solid var(--orange-dark);
+    padding: 3px 6px;  /* Same as home button */
+    border-radius: 4px;
+    font-size: 0.7rem;  /* Same as home button */
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;  /* Same as home button */
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(245, 124, 0, 0.3);
+}
+
+.help-btn:hover {
+    background: var(--orange-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(245, 124, 0, 0.4);
+}
+
+.help-btn i {
+    font-size: 0.7rem;  /* Same as home button */
+}
+
+/* Sign Out Button - Smaller than Home button */
 .signout-btn {
     background: var(--red-primary);
     color: white;
     border: 1px solid var(--red-dark);
-    padding: 5px 12px;
+    padding: 2px 5px;  /* Smaller than home button */
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 0.65rem;  /* Smaller than home button */
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 3px;  /* Smaller gap */
     white-space: nowrap;
     box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
 }
@@ -540,45 +582,17 @@ input, textarea { user-select: auto; }
 .signout-btn:hover {
     background: var(--red-dark);
     border-color: #b21f2d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.4);
 }
 
 .signout-btn i {
-    font-size: 12px;
+    font-size: 0.65rem;  /* Smaller icon */
 }
 
-/* Updated Help Button - Orange and Smaller */
-.help-btn {
-    background: var(--orange-primary);
-    color: white;
-    border: 1px solid var(--orange-dark);
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(245, 124, 0, 0.3);
-}
-
-.help-btn:hover {
-    background: var(--orange-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(245, 124, 0, 0.4);
-}
-
-.help-btn i {
-    font-size: 12px;
-}
-
-.qat-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+/* Hide original ribbon header user info */
+.ribbon-header .user-info-header {
+    display: none;
 }
 
 /* ============================================
@@ -922,34 +936,6 @@ input, textarea { user-select: auto; }
     background: var(--red-dark);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
-}
-
-/* ============================================
-   TOP RIGHT CORNER USER INFO CONTAINER
-   ============================================ */
-.top-right-user-container {
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 6px 12px;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-primary);
-}
-
-/* Adjust body padding to account for fixed top bar */
-body {
-    padding-top: 70px;
-}
-
-/* Hide original ribbon header user info */
-.ribbon-header .user-info-header {
-    display: none;
 }
 
 /* ============================================
