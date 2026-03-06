@@ -8,6 +8,8 @@
     --navy-dark: #13294b;
     --orange-primary: #f57c00;
     --orange-dark: #e65100;
+    --red-primary: #dc3545;
+    --red-dark: #c82333;
     --gray-100: #f5f5f5;
     --gray-200: #eeeeee;
     --gray-300: #e0e0e0;
@@ -29,7 +31,7 @@
     --border-radius-md: 6px;
     --border-radius-lg: 8px;
     --border-radius-xl: 14px;
-    --border-radius-button: 4px; /* Changed from 12px to 4px to match home button */
+    --border-radius-button: 4px;
     --bg-primary: var(--gray-100);
     --text-primary: var(--gray-900);
     --text-secondary: var(--gray-700);
@@ -153,7 +155,7 @@ input, textarea { user-select: auto; }
     padding:8px 16px;
     background:rgba(255,255,255,0.96); 
     border:2px solid var(--orange-primary); 
-    border-radius: var(--border-radius-button); /* Using 4px */
+    border-radius: var(--border-radius-button);
     box-shadow:var(--shadow-lg); 
     color:var(--navy-dark); 
     font-weight:600; 
@@ -195,7 +197,7 @@ input, textarea { user-select: auto; }
     background:var(--navy-dark); 
     color:white; 
     padding:6px 12px; 
-    border-radius:4px; /* Changed from 20px to 4px */
+    border-radius:4px;
     font-size:0.8rem; 
     left:80px; 
     opacity:0; 
@@ -301,7 +303,7 @@ input, textarea { user-select: auto; }
     background:rgba(255,255,255,0.2); 
     backdrop-filter:blur(6px); 
     padding:var(--space-sm) var(--space-lg); 
-    border-radius:4px; /* Changed from 10px to 4px */
+    border-radius:4px;
     border:1px solid rgba(255,255,255,0.3); 
     font-size:0.95rem; 
     margin-top:var(--space-sm); 
@@ -336,7 +338,7 @@ input, textarea { user-select: auto; }
 }
 
 /* ============================================
-   RIBBON HEADER
+   RIBBON HEADER - MODIFIED FOR TOP RIGHT CORNER
    ============================================ */
 .ribbon-header {
     position: fixed; 
@@ -412,7 +414,7 @@ input, textarea { user-select: auto; }
     gap: 4px; 
     background-color: var(--btn-secondary-bg); 
     border: 1px solid var(--border-primary); 
-    border-radius: var(--border-radius-sm); /* 4px - matching home button */
+    border-radius: var(--border-radius-sm);
     color: var(--text-secondary); 
     font-size: 0.7rem; 
     padding: 3px 6px; 
@@ -446,33 +448,23 @@ input, textarea { user-select: auto; }
 
 .ribbon-link.home-active i { color:white; }
 
-.ribbon-btn.help-btn { 
-    background-color:var(--orange-primary) !important; 
-    color:white !important; 
-    border-color:var(--orange-dark) !important; 
-}
-
-.ribbon-btn.help-btn i { color:white !important; }
-
 /* ============================================
-   USER INFO & SIGN OUT BUTTON STYLES
+   USER INFO & SIGN OUT BUTTON STYLES - REPOSITIONED
    ============================================ */
 .user-info-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-right: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 5px 15px 5px 10px;
-    border-radius: 4px; /* Changed from 50px to 4px */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    gap: 8px;
+    background: transparent;
+    padding: 0;
+    border: none;
+    backdrop-filter: none;
 }
 
 .user-avatar-small {
-    width: 38px;
-    height: 38px;
-    border-radius: 4px; /* Changed from 50% to 4px */
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
     overflow: hidden;
     border: 2px solid var(--orange-primary);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -497,7 +489,7 @@ input, textarea { user-select: auto; }
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -508,78 +500,85 @@ input, textarea { user-select: auto; }
 }
 
 .user-name-small {
-    color: white;
-    font-size: 14px;
+    color: var(--navy-dark);
+    font-size: 13px;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.2;
     white-space: nowrap;
 }
 
 .user-email-small {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 12px;
-    line-height: 1.3;
+    color: var(--gray-700);
+    font-size: 11px;
+    line-height: 1.2;
     white-space: nowrap;
-    max-width: 250px;
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 500;
 }
 
+/* Updated Sign Out Button - Solid Red and Smaller */
 .signout-btn {
-    background: rgba(244, 67, 54, 0.2);
+    background: var(--red-primary);
     color: white;
-    border: 1px solid rgba(244, 67, 54, 0.5);
-    padding: 8px 16px;
-    border-radius: 4px; /* Changed from 50px to 4px */
-    font-size: 14px;
+    border: 1px solid var(--red-dark);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     white-space: nowrap;
-    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
 }
 
 .signout-btn:hover {
-    background: rgba(244, 67, 54, 0.9);
-    border-color: #f44336;
+    background: var(--red-dark);
+    border-color: #b21f2d;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4);
 }
 
 .signout-btn i {
-    font-size: 14px;
+    font-size: 12px;
 }
 
+/* Updated Help Button - Orange and Smaller */
 .help-btn {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--orange-primary);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 8px 16px;
-    border-radius: 4px; /* Changed from 50px to 4px */
-    font-size: 14px;
+    border: 1px solid var(--orange-dark);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
     font-weight: 500;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     white-space: nowrap;
-    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px rgba(245, 124, 0, 0.3);
 }
 
 .help-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--orange-dark);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(245, 124, 0, 0.4);
+}
+
+.help-btn i {
+    font-size: 12px;
 }
 
 .qat-right {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 /* ============================================
@@ -589,7 +588,7 @@ input, textarea { user-select: auto; }
     display:none; 
     background:rgba(255,255,255,0.92); 
     border:1px solid var(--border-primary); 
-    border-radius:4px; /* Changed from 30px to 4px */
+    border-radius:4px;
     color:var(--orange-primary); 
     font-size:2rem; 
     cursor:pointer; 
@@ -638,7 +637,7 @@ input, textarea { user-select: auto; }
     gap:6px; 
     background-color:var(--btn-secondary-bg); 
     border:1px solid var(--border-primary); 
-    border-radius:4px; /* Changed from var(--border-radius-sm) to 4px */
+    border-radius:4px;
     color:var(--text-secondary); 
     font-size:0.95rem; 
     padding:8px 16px; 
@@ -661,7 +660,7 @@ input, textarea { user-select: auto; }
 .mobile-user-avatar {
     width: 55px;
     height: 55px;
-    border-radius: 4px; /* Changed from 50% to 4px */
+    border-radius: 4px;
     overflow: hidden;
     border: 2px solid var(--orange-primary);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -701,13 +700,13 @@ input, textarea { user-select: auto; }
     margin-top: 15px;
     justify-content: center;
     padding: 12px;
-    background: rgba(244, 67, 54, 0.3);
-    border-color: rgba(244, 67, 54, 0.6);
+    background: var(--red-primary);
+    border-color: var(--red-dark);
     font-size: 16px;
 }
 
 .mobile-signout-btn:hover {
-    background: rgba(244, 67, 54, 0.9);
+    background: var(--red-dark);
 }
 
 .mobile-tabs { 
@@ -723,7 +722,7 @@ input, textarea { user-select: auto; }
     gap:16px; 
     background-color:var(--btn-secondary-bg); 
     border:1px solid var(--border-primary); 
-    border-radius:4px; /* Changed from var(--border-radius-md) to 4px */
+    border-radius:4px;
     color:var(--text-secondary); 
     font-size:1rem; 
     padding:12px 16px; 
@@ -785,7 +784,7 @@ input, textarea { user-select: auto; }
     font-size: 1.3rem;
     font-weight: 600;
     padding: 12px 38px;
-    border-radius: 4px; /* Changed from 50px to 4px */
+    border-radius: 4px;
     text-decoration: none;
     box-shadow: 0 6px 16px rgba(245, 124, 0, 0.35);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -838,7 +837,7 @@ input, textarea { user-select: auto; }
 
 .signout-popup {
     background: white;
-    border-radius: 8px; /* Changed from 20px to 8px */
+    border-radius: 8px;
     padding: 30px;
     max-width: 400px;
     width: 90%;
@@ -850,8 +849,8 @@ input, textarea { user-select: auto; }
 .signout-popup .icon-circle {
     width: 80px;
     height: 80px;
-    background: #f44336;
-    border-radius: 4px; /* Changed from 50% to 4px */
+    background: var(--red-primary);
+    border-radius: 4px;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
@@ -876,7 +875,7 @@ input, textarea { user-select: auto; }
 }
 
 .signout-popup .user-email-popup {
-    color: #f57c00;
+    color: var(--orange-primary);
     font-weight: 600;
     margin-bottom: 20px;
     font-size: 14px;
@@ -893,7 +892,7 @@ input, textarea { user-select: auto; }
     flex: 1;
     padding: 12px;
     border: none;
-    border-radius: 4px; /* Changed from 10px to 4px */
+    border-radius: 4px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -915,14 +914,42 @@ input, textarea { user-select: auto; }
 }
 
 .confirm-btn {
-    background: #f44336;
+    background: var(--red-primary);
     color: white;
 }
 
 .confirm-btn:hover {
-    background: #d32f2f;
+    background: var(--red-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* ============================================
+   TOP RIGHT CORNER USER INFO CONTAINER
+   ============================================ */
+.top-right-user-container {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-primary);
+}
+
+/* Adjust body padding to account for fixed top bar */
+body {
+    padding-top: 70px;
+}
+
+/* Hide original ribbon header user info */
+.ribbon-header .user-info-header {
+    display: none;
 }
 
 /* ============================================
@@ -954,7 +981,7 @@ input, textarea { user-select: auto; }
     width: 160px; 
     height: 160px; 
     background: white; 
-    border-radius: 4px; /* Changed from 50% to 4px */
+    border-radius: 4px;
     border: 4px solid var(--orange-primary); 
     box-shadow: var(--shadow-lg); 
     display: flex; 
@@ -993,7 +1020,7 @@ input, textarea { user-select: auto; }
     width: 150px; 
     height: 150px;
     background: white; 
-    border-radius: 4px; /* Changed from 50% to 4px */
+    border-radius: 4px;
     padding: 15px 10px; 
     box-shadow: var(--shadow-lg); 
     transition: opacity 0.4s ease, box-shadow 0.3s; 
@@ -1101,7 +1128,7 @@ input, textarea { user-select: auto; }
     color:var(--gray-600); 
     background:#f8fafc; 
     padding:14px 30px; 
-    border-radius:4px; /* Changed from 0 to 4px */
+    border-radius:4px;
     width:fit-content; 
     margin-left:auto; 
     margin-right:auto; 
@@ -1135,7 +1162,7 @@ input, textarea { user-select: auto; }
         width: 160px; 
         height: 160px;
         position: relative; 
-        border-radius: 4px; /* Maintain 4px */
+        border-radius: 4px;
     }
     
     .cx-circle-card { 
@@ -1151,7 +1178,7 @@ input, textarea { user-select: auto; }
         margin: 0 auto; 
         transform: none !important; 
         opacity: 1; 
-        border-radius: 4px; /* Changed from 50% to 4px */
+        border-radius: 4px;
         padding: 12px 5px;
     }
     
@@ -1192,32 +1219,20 @@ input, textarea { user-select: auto; }
 @media (max-width: 800px) { 
     .ribbon-header { display: none; } 
     .mobile-ribbon-toggle { display: flex; } 
-    body { padding-top: 70px; } 
+    body { padding-top: 70px; }
+    
+    /* Hide top right container on mobile */
+    .top-right-user-container {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) { 
     .hr-fit_clickable { bottom:20px; left:20px; width:60px; height:60px; } 
     .floating-btn-left, .floating-btn-right { bottom: 10px; }
     
-    .user-email-small {
-        display: none;
-    }
-    .user-info-header {
-        padding: 5px;
-        margin-right: 5px;
-    }
     .cx-hr-fit-title {
         font-size: 1.8rem;
-    }
-    .signout-text, .help-text {
-        display: none;
-    }
-    .signout-btn i, .help-btn i {
-        margin: 0;
-        font-size: 18px;
-    }
-    .signout-btn, .help-btn {
-        padding: 10px;
     }
 }
 
